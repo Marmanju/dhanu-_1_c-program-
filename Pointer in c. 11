@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int a = 10;         // Declare an integer variable
+    int *p;             // Declare a pointer to an integer
+
+    p = &a;             // Assign the address of 'a' to the pointer 'p'
+
+    // Display the values
+    printf("Value of a: %d\n", a);                     // Prints the value of 'a'
+    printf("Address of a: %p\n", (void*)&a);           // Prints the address of 'a'
+    printf("Value of p (address stored): %p\n", (void*)p); // Prints the address stored in 'p'
+    printf("Value at address stored in p: %d\n", *p);  // Prints the value at the address stored in 'p'
+
+    // Modify the value of 'a' using the pointer
+    *p = 20;
+    printf("\nAfter modifying the value using the pointer:\n");
+    printf("Value of a: %d\n", a);                     // Prints the modified value of 'a'
+
+    return 0;
+}
