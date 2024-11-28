@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int *ptr = arr; // Pointer to the first element of the array
+    int size = sizeof(arr) / sizeof(arr[0]); // Calculate the number of elements in the array
+
+    printf("Array elements using pointer arithmetic:\n");
+
+    for (int i = 0; i < size; i++) {
+        printf("Element %d: %d\n", i, *(ptr + i)); // Access array elements using pointer arithmetic
+    }
+
+    printf("\nPointer arithmetic demonstration:\n");
+
+    printf("Initial address: %p, Value: %d\n", (void*)ptr, *ptr);
+    ptr++; // Move the pointer to the next element
+    printf("After ptr++: Address: %p, Value: %d\n", (void*)ptr, *ptr);
+    ptr--; // Move the pointer back to the previous element
+    printf("After ptr--: Address: %p, Value: %d\n", (void*)ptr, *ptr);
+
+    return 0;
+}
