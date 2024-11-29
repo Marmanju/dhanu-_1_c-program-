@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Define a structure to store book details
+struct Book {
+    char title[100];
+    char author[100];
+    int publicationYear;
+    float price;
+};
+
+// Function to input book details
+void inputBookDetails(struct Book *book) {
+    printf("Enter book title: ");
+    getchar(); // Clear the newline character from the buffer
+    fgets(book->title, 100, stdin);
+    book->title[strcspn(book->title, "\n")] = '\0'; // Remove newline character
+
+    printf("Enter author name: ");
+    fgets(book->author, 100, stdin);
+    book->author[strcspn(book->author, "\n")] = '\0';
+
+    printf("Enter publication year: ");
+    scanf("%d", &book->publicationYear);
+
+    printf("Enter price: ");
+    scanf("%f", &book->price);
+}
+
+// Function to display book details
+void displayBookDetails(const struct Book *book) {
+    printf("\nBook Details:\n");
+    printf("Title: %s\n", book->title);
+    printf("Author: %s\n", book->author);
+    printf("Publication Year: %d\n", book->publicationYear);
+    printf("Price: %.2f\n", book->price);
+}
+
+int main() {
+    int n;
+
+    printf("Enter the number of books: ");
+    scanf("%d", &n);
+
+    // Allocate memory for n books
+    struct Book *books = (struct Book *)malloc(n * sizeof(struct Book));
+    if (books == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    // Input details for each book
+    for (int i = 0; i < n; i++) {
+        printf("\nEntering details for book %d:\n", i + 1);
+        inputBookDetails(&books[i]);
+    }
+
+    // Display details of all books
+    printf("\nDisplaying details of all books:\n");
+    for (int i = 0; i < n; i++) {
+        printf("\nBook %d:\n", i + 1);
+        displayBookDetails(&books[i]);
+    }
+
+    // Free allocated memory
+    free(books);
+
+    return 0;
+}
