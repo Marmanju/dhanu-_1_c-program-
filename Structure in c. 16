@@ -1,0 +1,26 @@
+// Preprocessor Directives
+#include <stdio.h> // Standard Input Output header
+#include <stdlib.h> // Standard library header (optional, based on program needs)
+
+// Global Declarations
+int global_variable; // Example of a global variable
+
+// Function Prototypes
+void myFunction(); // Declaration of a function (optional)
+
+// Main Function
+int main() {
+    // Variable Declarations
+    int local_variable;
+
+    // Program Logic
+    printf("Hello, World!\n"); // Example statement
+    myFunction(); // Call to a function
+
+    return 0; // Return 0 to indicate successful execution
+}
+
+// User-Defined Functions
+void myFunction() {
+    printf("This is a user-defined function.\n");
+}
